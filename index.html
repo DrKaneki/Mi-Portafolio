@@ -1,0 +1,460 @@
+<!doctype html> 
+<html lang="es"> 
+<head>   
+  <meta charset="utf-8" />   
+  <meta name="viewport" content="width=device-width,initial-scale=1" />   
+  <title>Portafolio — Jose Manuel Garriazo</title> 
+  <div class="logo" aria-hidden="true">JM</div>
+   
+  <meta name="description" content="Portafolio profesional — Jose Manuel Garriazo. Técnico en Sistemas: soporte, redes y desarrollo. Certificados, proyectos y contacto.">   
+  <meta name="keywords" content="portafolio, técnico, sistemas, soporte, redes, desarrollo, Jose Manuel">   
+  <meta name="author" content="Jose Manuel Garriazo">   
+  <link rel="icon" href='data:image/svg+xml;utf8,<svg xmlns="css/foto.jpg" viewBox="0 0 100 100"><rect width="100" height="100" rx="18" fill="%234db6ff"/><text x="50" y="58" font-size="48" text-anchor="middle" fill="%23041226" font-family="Arial" font-weight="700">JM</text></svg>'>
+   
+  <style>     
+    /* ---------- ROOT / THEME ---------- */     
+    :root{       
+      --bg-1:#071021; --bg-2:#071423;       
+      --card:#0f1720; --muted:#9aa6b2;       
+      --accent-1:#4db6ff; --accent-2:#7b5cff;       
+      --glass: rgba(255,255,255,0.04);       
+      --radius:14px; --nav-h:76px;       
+      --text:#e7f0fb;       
+      --maxw:1180px;     
+    }     
+    [data-theme="light"]{       
+      --bg-1:#f6f8fb; --bg-2:#eef2f7;       
+      --card:#ffffff; --muted:#506070;       
+      --text:#0b1220;       
+      --accent-1:#0077ff; --accent-2:#7b5cff;     
+    }      
+    *{box-sizing:border-box}     
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;color:var(--text);background:linear-gradient(180deg,var(--bg-1),var(--bg-2));-webkit-font-smoothing:antialiased}     
+    a{color:inherit}     
+    img{display:block;max-width:100%}      
+    /* ---------- NAVBAR ---------- */     
+    header.nav{       
+      position:fixed;left:0;right:0;top:0;height:var(--nav-h);       
+      display:flex;align-items:center;justify-content:center;padding:10px 18px;       
+      z-index:1200;backdrop-filter:blur(10px);       
+      background:linear-gradient(180deg, rgba(6,10,15,0.65), rgba(6,10,15,0.35));       
+      border-bottom:1px solid rgba(255,255,255,0.03);     
+    }     
+    .nav-inner{width:100%;max-width:var(--maxw);display:flex;align-items:center;justify-content:space-between;gap:16px;padding:6px 10px}     
+    .brand{display:flex;gap:12px;align-items:center}     
+    .logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent-1),var(--accent-2));display:grid;place-items:center;font-weight:800;color:#041026}     
+    .brand .title{font-weight:700}     
+    nav.main-links{display:flex;gap:12px;align-items:center}     
+    nav.main-links a{padding:8px 12px;border-radius:8px;text-decoration:none;color:var(--muted);font-weight:600;transition:all .18s}     
+    nav.main-links a:hover{color:var(--accent-1);background:rgba(255,255,255,0.02)}     
+    .controls{display:flex;gap:10px;align-items:center}     
+    .btn{padding:9px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:#041026;font-weight:700;text-decoration:none;box-shadow:0 8px 26px rgba(30,45,80,0.25)}     
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--accent-1)}     
+    .theme-toggle{background:transparent;border:0;color:var(--muted);cursor:pointer;font-weight:700;padding:6px}      
+    /* ---------- MAIN LAYOUT ---------- */     
+    main{padding-top:calc(var(--nav-h) + 18px);position:relative;z-index:1}     
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:28px;display:block}      
+    /* ---------- HERO ---------- */     
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:24px;align-items:center;margin-top:6px}     
+    .hero-left h1{font-size:44px;margin:0 0 10px;line-height:1.02}     
+    .accent{color:var(--accent-1)}     
+    .lead{color:var(--muted);margin-bottom:18px;font-size:16px}     
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}      
+    /* ---------- GLASS CARD ---------- */     
+    .glass{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);backdrop-filter:blur(6px)}      
+    /* ---------- PROFILE ---------- */     
+    .profile{display:flex;gap:14px;align-items:center}     
+    .avatar{width:110px;height:110px;border-radius:12px;overflow:hidden;background:linear-gradient(135deg,var(--accent-1),var(--accent-2));display:grid;place-items:center;font-weight:800;color:#041026}     
+    .meta h3{margin:0;font-size:18px}     
+    .meta p{margin:0;color:var(--muted);font-size:13px}      
+    /* ---------- SECTIONS ---------- */     
+    section{padding:56px 0}     
+    .section-title{font-size:26px;margin:0 0 8px}     
+    .section-sub{color:var(--muted);margin-bottom:18px}      
+    /* ---------- GRID & CARDS ---------- */     
+    .grid{display:grid;gap:18px}     
+    .grid-3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}     
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);transition:transform .28s,box-shadow .28s}     
+    .card:hover{transform:translateY(-8px);box-shadow:0 20px 28px rgba(6,12,28,0.6)}     
+    .project h4{margin:0 0 8px;font-size:16px}     
+    .project p{color:var(--muted);font-size:14px}      
+    /* ---------- CERTIFICATES ---------- */     
+    .cert-grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}     
+    .cert-card{padding:14px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);display:flex;flex-direction:column;gap:10px}     
+    .cert-btn{padding:10px 12px;border-radius:10px;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:#041026;font-weight:700;text-decoration:none;text-align:center;display:inline-block;box-shadow:0 10px 22px rgba(30,45,80,0.22) }      
+    /* ---------- SKILLS ---------- */     
+    .skills{display:grid;grid-template-columns:1fr 380px;gap:20px;align-items:start}     
+    .skill{margin-bottom:14px}     
+    .skill label{display:flex;justify-content:space-between;font-weight:700;color:var(--text);margin-bottom:6px}     
+    .bar{height:12px;background:rgba(255,255,255,0.06);border-radius:999px;overflow:hidden}     
+    .bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));width:0%;border-radius:999px;transition:width 900ms cubic-bezier(.2,.9,.3,1)}      
+    /* ---------- TIMELINE ---------- */     
+    .timeline{position:relative;padding-left:22px;border-left:3px solid rgba(77,182,255,0.1)}     
+    .timeline-item{position:relative;margin-bottom:26px;padding-left:14px}     
+    .timeline-item::before{content:'';width:12px;height:12px;border-radius:50%;background:var(--accent-1);position:absolute;left:-21px;top:6px;box-shadow:0 0 10px rgba(77,182,255,0.18)}     
+    .timeline-item h5{margin:0 0 6px;font-size:15px;color:var(--text)}     
+    .timeline-item p{margin:0;color:var(--muted)}      
+    /* ---------- PROJECTS ADVANCED ---------- */     
+    .projects-advanced-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}     
+    .project-advanced-card{border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.03);background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.01));transition:transform .28s, box-shadow .28s}     
+    .project-advanced-card img{width:100%;height:180px;object-fit:cover;display:block}     
+    .project-advanced-info{padding:14px}      
+    /* ---------- FOOTER ---------- */     
+    footer{padding:26px 0;color:var(--muted);text-align:center;border-top:1px solid rgba(255,255,255,0.02);margin-top:40px}     
+    .footer-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px}     
+    .footer-links a{color:var(--muted);text-decoration:none}      
+    /* ---------- MODAL ---------- */     
+    .modal{position:fixed;inset:0;background:rgba(2,6,12,0.6);display:none;align-items:center;justify-content:center;z-index:1400;padding:20px}     
+    .modal .box{width:min(1000px,96%);max-height:86vh;overflow:auto;background:linear-gradient(180deg,#071022,#081229);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04)}     
+    .modal .close{background:transparent;border:0;color:var(--muted);font-weight:700;float:right;cursor:pointer}      
+    /* ---------- RESPONSIVE ---------- */     
+    @media(max-width:980px){.hero{grid-template-columns:1fr}.skills{grid-template-columns:1fr}.avatar{width:90px;height:90px}.nav-inner{padding:0 6px}}     
+    @media(max-width:560px){:root{--nav-h:64px}.wrap{padding:14px}.brand .title{display:none}}   
+  </style> 
+</head> 
+<body data-theme="dark">   
+  <canvas id="bg" aria-hidden="true" style="position:fixed;inset:0;z-index:0;pointer-events:none"></canvas>    
+
+  <header class="nav" role="banner">     
+    <div class="nav-inner">       
+      <div class="brand" style="gap:10px">         
+        <div class="logo" aria-hidden="true">JM</div>         
+        <div>           
+          <div class="title">Jose Manuel Garriazo</div>           
+          <div style="font-size:12px;color:var(--muted)">Técnico en Redes</div>         
+        </div>       
+      </div>        
+
+      <nav class="main-links" aria-label="Main navigation">         
+        <a href="#sobre">Sobre mí</a>         
+        <a href="#proyectos">Proyectos</a>         
+        <a href="#certificados">Certificados</a>         
+        <a href="#skills">Habilidades</a>         
+        <a href="#contacto">Contacto</a>         
+        <span style="width:10px"></span>         
+        <div class="controls" role="group" aria-label="Acciones">           
+          <button class="theme-toggle" id="themeToggle" aria-pressed="false" title="Cambiar tema">🌓</button>           
+          <a class="btn ghost" id="openAllCerts">Ver certificados</a>           
+          <!-- BOTÓN PRINCIPAL ACTUALIZADO -->           
+          <a class="btn" id="cvDownload" href="https://pdfhost.io/v/gMdq8psApb_Cv_Manuel" target="_blank">Ver CV en línea</a>         
+        </div>       
+      </nav>     
+    </div>   
+  </header>    
+
+  <main>     
+    <div class="wrap">       
+      <section id="sobre" class="hero" aria-label="Presentación">         
+        <div class="hero-left">           
+          <h1 class="hero-title">Hola, soy <span class="accent">Jose Manuel</span></h1>           
+          <p class="lead">Técnico en Redes | Soporte, Desarrollo. Construyo soluciones prácticas y escalables para problemas reales.</p>           
+          <div class="hero-actions">             
+            <a class="btn" href="#proyectos">Ver proyectos</a>             
+            <a class="btn ghost" href="#contacto">Contactar</a>           
+          </div>            
+
+          <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">             
+            <div class="glass" style="display:flex;gap:12px;align-items:center">               
+              <div style="font-size:13px;color:var(--muted)">Ubicación</div>               
+              <div style="font-weight:700">Ayacucho-Lucanas-Puquio</div>             
+            </div>             
+            <div class="glass" style="display:flex;gap:12px;align-items:center">               
+              <div style="font-size:13px;color:var(--muted)">Edad</div>               
+              <div style="font-weight:700">23</div>             
+            </div>           
+          </div>         
+        </div>         
+
+        <aside class="glass" aria-label="Perfil">           
+          <div class="profile">             
+            <div class="avatar" role="img" aria-label="Avatar de Jose Manuel">               
+              <svg width="110" height="110" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">                 
+                <defs><linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#4db6ff"/><stop offset="1" stop-color="#7b5cff"/></linearGradient></defs>                 
+                <rect width="120" height="120" rx="16" fill="url(#g1)"/>                 
+                <g transform="translate(20,24)" fill="#041026">                   
+                  <rect x="0" y="46" width="80" height="10" rx="4"/>                   
+                  <rect x="12" y="8" width="56" height="36" rx="6"/>                   
+                  <rect x="20" y="18" width="36" height="4" rx="2" fill="#c7ecff"/>                   
+                  <rect x="20" y="28" width="28" height="4" rx="2" fill="#ddccff"/>                 
+                </g>               
+              </svg>             
+            </div>             
+
+            <div class="meta">               
+              <h3>Jose Manuel Garriazo</h3>               
+              <p>Técnico en Redes — Soporte & Mantenimiento</p>               
+              <div style="margin-top:12px;display:flex;gap:8px">                 
+                <a class="btn ghost" href="#contacto">Contacto</a>                 
+                <!-- BOTÓN EN PERFIL (YA PUNTUA AL LINK) -->                 
+                <a class="btn" id="cv-download-2" href="https://pdfhost.io/v/gMdq8psApb_Cv_Manuel" target="_blank">Ver CV en línea</a>               
+              </div>             
+            </div>           
+          </div>         
+        </aside>       
+      </section>        
+
+      <section id="proyectos" aria-labelledby="projects-title">         
+        <h2 class="section-title" id="projects-title">Proyectos destacados</h2>         
+        <p class="section-sub">Proyectos que muestran mi capacidad técnica y pragmática.</p>          
+
+        <div class="grid grid-3">            
+          <article class="project card" data-anim>             
+            <h4>ConectaRural — Portal Comunitario</h4>             
+            <p>Plataforma para talleres, recursos y educación tecnológica en zonas rurales.</p>             
+            <div style="margin-top:12px"><a class="cert-btn" href="https://asociacionpasiega.org/conecta-rural/" target="_blank" rel="noopener">Ver proyecto</a></div>           
+          </article>            
+
+          <article>             
+          </article>         
+        </div>       
+      </section>        
+
+      <section id="certificados" aria-labelledby="certs-title">         
+        <h2 class="section-title" id="certs-title">Certificados</h2>         
+        <p class="section-sub">Haz clic para abrir (coloca tus links reales en el script al final).</p>          
+
+        <div class="cert-grid">           
+          <div class="cert-card">             
+            <h4>Certificado 1</h4>             
+            <p class="small" style="color:var(--muted)">Curso / Institución • 2025</p>             
+            <a id="cert1" class="cert-btn" href="https://www.freecodecamp.org/espanol/certification/manuel_garriazo/responsive-web-design" target="_blank" rel="noopener">🔗 Ver Certificado 1</a>           
+          </div>            
+
+          <div class="cert-card">             
+            <h4>Certificado 2</h4>             
+            <p class="small" style="color:var(--muted)">Curso / Institución • 2024</p>             
+            <a id="cert2" class="cert-btn" href="https://www.freecodecamp.org/certification/manuel_garriazo/javascript-algorithms-and-data-structures-v8" target="_blank" rel="noopener">🔗 Ver Certificado 2</a>           
+          </div>         
+        </div>       
+      </section>        
+
+      <section id="skills" aria-labelledby="skills-title">         
+        <h2 class="section-title" id="skills-title">Habilidades & experiencia</h2>         
+        <p class="section-sub">Habilidades técnicas (estimadas) y experiencias relevantes.</p>          
+
+        <div class="skills">           
+          <div>             
+            <div class="skill"><label>Soporte Técnico <span>90%</span></label><div class="bar"><i data-val="90"></i></div></div>             
+            <div class="skill"><label>Redes & VLANs <span>80%</span></label><div class="bar"><i data-val="80"></i></div></div>             
+            <div class="skill"><label>Windows <span>75%</span></label><div class="bar"><i data-val="75"></i></div></div>             
+            <div class="skill"><label>Flutter / JS <span>65%</span></label><div class="bar"><i data-val="65"></i></div></div>           
+          </div>            
+
+          <div>             
+            <h3 style="margin-top:0">Experiencia</h3>             
+            <div class="timeline" style="margin-top:12px">               
+              <div class="timeline-item">                 
+                <h5>Soporte Técnico </h5>                 
+                <p>Diagnóstico hardware, redes LAN, soporte a usuarios.</p>               
+              </div>               
+              <div class="timeline-item">                 
+                <h5>Asistente de Redes </h5>                 
+                <p>Instalación de cableado, configuración de switches y monitoreo.</p>               
+              </div>             
+            </div>           
+          </div>         
+        </div>       
+      </section>        
+
+        
+              
+
+      <section id="contacto" aria-labelledby="contact-title">         
+        <h2 class="section-title" id="contact-title">Contacto</h2>         
+        <p class="section-sub">¿Listo para colaborar? Escríbeme o deja un mensaje.</p>          
+
+        <div class="grid grid-2" style="align-items:start">           
+          <div class="card">             
+            <h4>Email</h4>             
+            <p style="color:var(--muted)">josemgarriazo@gmail.com</p>             
+            <div style="margin-top:12px"><a class="cert-btn" href="mailto:ejemplo@correo.com">Enviar correo</a></div>           
+          </div>            
+
+          <div class="card">             
+            <h4>Contacto rápido / WhatsApp</h4>             
+            <p style="color:var(--muted)">+51 921 545 499</p>             
+            <div style="margin-top:12px"><a class="cert-btn" href="https://wa.me/51000000000" target="_blank">Abrir WhatsApp</a></div>           
+          </div>         
+        </div>          
+
+        <div style="margin-top:20px;">           
+          <form id="contactForm" action="https://formspree.io/f/your-form-id" method="POST">             
+            <div style="display:grid;gap:10px;grid-template-columns:1fr 1fr">               
+              <input name="name" required placeholder="Tu nombre" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--text)">               
+              <input name="email" type="email" required placeholder="Tu email" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--text)">             
+            </div>             
+            <textarea name="message" required placeholder="Mensaje" rows="4" style="width:100%;margin-top:10px;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--text)"></textarea>             
+            <div style="margin-top:10px"><button class="cert-btn" type="submit">Enviar mensaje</button></div>           
+          </form>         
+        </div>       
+      </section>        
+
+      <footer>         
+        © <span id="year"></span> Jose Manuel Garriazo          
+
+        <div class="footer-links"><a href="https://github.com/DrKaneki" target="_blank">GitHub</a> · <a href="https://www.linkedin.com/in/jose-garriazo-873b92369/" target="_blank">LinkedIn</a></div>       
+      </footer>     
+    </div>   
+  </main>    
+
+  <div id="modal" class="modal" role="dialog" aria-hidden="true">     
+    <div class="box" role="document">       
+      <button class="close" id="modalClose">Cerrar ✕</button>       
+      <div id="modalBody" style="margin-top:8px">         
+        <p style="color:var(--muted)">Vista previa del certificado (si tu link es PDF, se mostrará aquí).</p>         
+        <div id="iframeWrap" style="margin-top:10px"></div>       
+      </div>     
+    </div>   
+  </div>  
+
+  <script> 
+    /* ================= LIGHTWEIGHT BACKGROUND (optimized) ================= */ 
+    const canvas = document.getElementById('bg'); 
+    const ctx = canvas.getContext('2d'); 
+    let DPR = Math.max(1, window.devicePixelRatio || 1); 
+    function resizeCanvas(){   
+      DPR = Math.max(1, window.devicePixelRatio || 1);   
+      canvas.width = innerWidth * DPR;   
+      canvas.height = innerHeight * DPR;   
+      canvas.style.width = innerWidth + 'px';   
+      canvas.style.height = innerHeight + 'px';   
+      ctx.setTransform(DPR,0,0,DPR,0,0); 
+    } 
+    resizeCanvas(); 
+    window.addEventListener('resize', ()=>{ clearTimeout(window._rc); window._rc = setTimeout(resizeCanvas,120) }); 
+
+    let mouse = {x: innerWidth/2, y: innerHeight/2}; 
+    window.addEventListener('mousemove', (e)=>{ mouse.x = e.clientX; mouse.y = e.clientY; }); 
+
+    function drawBg(){   
+      ctx.clearRect(0,0,innerWidth,innerHeight);   
+      const g = ctx.createLinearGradient(0,0,innerWidth,innerHeight);   
+      g.addColorStop(0,'rgba(8,16,32,0.72)');   
+      g.addColorStop(1,'rgba(2,6,12,0.88)');   
+      ctx.fillStyle = g; ctx.fillRect(0,0,innerWidth,innerHeight);    
+
+      const r = Math.min(220, Math.max(100, innerWidth/6));   
+      const radial = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, r);   
+      radial.addColorStop(0, 'rgba(77,182,255,0.10)');   
+      radial.addColorStop(1, 'rgba(77,182,255,0)');   
+      ctx.fillStyle = radial;   
+      ctx.fillRect(0,0,innerWidth,innerHeight);    
+
+      requestAnimationFrame(drawBg); 
+    } 
+    requestAnimationFrame(drawBg); 
+
+    /* ================= THEME (light/dark) ================= */ 
+    const body = document.body; 
+    const themeToggle = document.getElementById('themeToggle'); 
+    const stored = localStorage.getItem('theme'); 
+    if(stored) body.setAttribute('data-theme', stored); 
+    themeToggle.addEventListener('click', ()=>{   
+      const cur = body.getAttribute('data-theme') === 'light' ? 'dark' : 'light';   
+      body.setAttribute('data-theme', cur);   
+      localStorage.setItem('theme', cur);   
+      themeToggle.setAttribute('aria-pressed', cur === 'light'); 
+    }); 
+
+    /* ================= SKILL BARS ON SCROLL ================= */ 
+    const bars = document.querySelectorAll('.bar > i'); 
+    function animateBars(){   
+      bars.forEach(b=>{     
+        const val = b.getAttribute('data-val') || 0;     
+        b.style.width = val + '%';   
+      }); 
+    } 
+    let barsAnimated = false; 
+    window.addEventListener('scroll', ()=>{   
+      const el = document.getElementById('skills');   
+      if(!el) return;   
+      const rect = el.getBoundingClientRect();   
+      if(rect.top < window.innerHeight - 120 && !barsAnimated){     
+        animateBars(); barsAnimated = true;   
+      } 
+    }); 
+
+    /* ================= PROJECTS ENTRY ANIM ================= */ 
+    const items = document.querySelectorAll('[data-anim]'); 
+    const observer = new IntersectionObserver((entries)=>{   
+      entries.forEach(en=>{     
+        if(en.isIntersecting){       
+          en.target.style.transform = 'translateY(0)';       
+          en.target.style.opacity = 1;       
+          en.target.style.transition = 'all .6s cubic-bezier(.2,.9,.3,1)';       
+          observer.unobserve(en.target);     
+        }   
+      }); 
+    },{threshold:0.12}); 
+    items.forEach(it=>{ it.style.transform='translateY(18px)'; it.style.opacity=0; observer.observe(it); }); 
+
+    /* ================= MODAL FOR CERTIFICATES ================= */ 
+    const modal = document.getElementById('modal'), modalClose = document.getElementById('modalClose'), iframeWrap = document.getElementById('iframeWrap'); 
+    function openModalWith(url){   
+      if(!url) return;   
+      modal.style.display = 'flex'; modal.setAttribute('aria-hidden','false');   
+      iframeWrap.innerHTML = ''; 
+      const isPDF = url.match(/\.pdf($|\?)/i) || url.startsWith('data:application/pdf') || url.includes('drive.google.com') || url.includes('pdfhost.io');   
+      if(isPDF){     
+        const iframe = document.createElement('iframe');     
+        iframe.src = url;     
+        iframe.style.width = '100%';     
+        iframe.style.height = '70vh';     
+        iframe.style.border = 'none';     
+        iframe.loading = 'lazy';     
+        iframeWrap.appendChild(iframe);   
+      } else {     
+        const a = document.createElement('a');     
+        a.href = url; a.target = '_blank'; a.rel = 'noopener';     
+        a.textContent = 'Abrir certificado en nueva pestaña';     
+        a.className = 'cert-btn';     
+        iframeWrap.appendChild(a);   
+      } 
+    } 
+    document.getElementById('openAllCerts').addEventListener('click', ()=> {   
+      modal.style.display='flex'; modal.setAttribute('aria-hidden','false');   
+      iframeWrap.innerHTML = '<p style="color:var(--muted)">Selecciona un certificado en la sección Certificados para ver la vista previa o abre en nueva pestaña.</p>'; 
+    }); 
+    modalClose.addEventListener('click', ()=>{ modal.style.display='none'; modal.setAttribute('aria-hidden','true'); iframeWrap.innerHTML = ''; }); 
+    modal.addEventListener('click', (e)=>{ if(e.target === modal){ modal.style.display='none'; modal.setAttribute('aria-hidden','true'); iframeWrap.innerHTML = ''; } }); 
+
+    document.getElementById('cert1').addEventListener('click', (e)=>{   
+      e.preventDefault();   
+      const url = document.getElementById('cert1').getAttribute('data-link') || document.getElementById('cert1').href;   
+      if(!url || url === '#'){ window.open('#','_blank'); return; }   
+      openModalWith(url); 
+    }); 
+    document.getElementById('cert2').addEventListener('click', (e)=>{   
+      e.preventDefault();   
+      const url = document.getElementById('cert2').getAttribute('data-link') || document.getElementById('cert2').href;   
+      if(!url || url === '#'){ window.open('#','_blank'); return; }   
+      openModalWith(url); 
+    }); 
+
+    /* ================= YEAR FOOTER ================= */ 
+    document.getElementById('year').textContent = new Date().getFullYear(); 
+
+    /* ================= QUICK PLACE TO SET LINKS (EDIT HERE) ================= */ 
+    const CERT1 = 'https://www.freecodecamp.org/espanol/certification/manuel_garriazo/responsive-web-design'; 
+    const CERT2 = 'https://www.freecodecamp.org/certification/manuel_garriazo/javascript-algorithms-and-data-structures-v8'; 
+    const CV_VIEW_LINK = 'https://pdfhost.io/v/gMdq8psApb_Cv_Manuel'; 
+    document.getElementById('cert1').href = CERT1; 
+    document.getElementById('cert2').href = CERT2; 
+    document.getElementById('cvDownload').href = CV_VIEW_LINK; 
+    document.getElementById('cv-download-2').href = CV_VIEW_LINK; 
+    document.getElementById('cert1').setAttribute('data-link', CERT1); 
+    document.getElementById('cert2').setAttribute('data-link', CERT2); 
+
+    /* ================= CONTACT FORM (FORMSPREE) ================= */ 
+    const contactForm = document.getElementById('contactForm'); 
+    if(contactForm){   
+      contactForm.addEventListener('submit', (e)=>{     
+        setTimeout(()=>{ alert('Gracias — tu mensaje fue enviado (si usas Formspree / endpoint correctamente).'); }, 500);   
+      }); 
+    } 
+
+    /* ================= ACCESSIBILITY / TABINDEX ================= */ 
+    document.querySelectorAll('a,button,input,textarea').forEach(el=>{ if(!el.hasAttribute('tabindex')) el.setAttribute('tabindex','0'); }); 
+  </script> 
+</body> 
+</html>
